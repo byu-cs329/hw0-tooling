@@ -54,9 +54,15 @@ Logging is an important part of debugging and fault isolation for removing code 
 
 To complete this part of the homework, edit the Maven `pom.xml` file to add support for [SLF4J](https://www.slf4j.org/) with the [Logback](https://logback.qos.ch/) binding library. Create an appropriate configuration file that connects the logger to STDOUT. A careful [Google search](http://bfy.tw/LdDI) will find several helpful resources. Add logging to the JavaDoc documented class at the *debug*, *info*, *warn*, *trace*, and *error* levels. Modify the configuration to experiment with the different log-levels available and explore how the console output is changed by the configure log level.
 
-## Part VI: Create a Pull Request
+## Part VI: .gitignore
 
-Complete this part of the homework but pushing your local feature branch to the central repository and then creating a [pull request](https://help.github.com/en/articles/creating-a-pull-request) for the feature. Pull requests are expected to roughly follow this [style guide](https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/). Be sure to directly reference the @-reference the instructor for notification. 
+Version control is most effective when it only tracks and reports files that are pertinent to the build and deployment of the project. It can be confusing when version control constantly reports information on non-essential files. It is expected that students include an appropriate `.gitignore` file in all project repositories to only track important files and artifacts.
+
+Complete this part of the homework by creating and adding a `.gitignore` file to the project (if it has yet to be added) that ignores build artifacts, IDE project files, and any other files not essential to the Maven life-cycle management.
+
+## Part VII: Create a Pull Request
+
+Complete this part of the homework by pushing your local feature branch to the central repository and then creating a [pull request](https://help.github.com/en/articles/creating-a-pull-request) for the feature. Pull requests are expected to roughly follow this [style guide](https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/). Be sure to directly reference the @-reference the instructor for notification. 
 
 # Grading Rubric
 
@@ -69,11 +75,12 @@ Complete this part of the homework but pushing your local feature branch to the 
 | `mvn site` generates JavaDocs with no warnings or errors | 5 | |
 | JavaDocs are given for one class that adheres to the style guide | 25 | |
 | Build fails in validate phase on CheckStyle | 5 | |
-| Code passes CheckStyle on the Google rule set | 25 | |
+| Code passes CheckStyle on the Google rule set | 20 | |
 | Logging support with a binding is in the `pom.xml` file | 5 | |
 | The JavaDoc documented class includes logging at all levels | 10 | |
 | Commits organized in logical units | 10 | |
 | Commit messages adhere to standard guidelines | 10 | |
+| `.gitignore` file to ignore non-essential files | 5 | |
 | Pull request adheres to style guide | 10 | | 
 | Pull request @references the instructor for notification | 5 | |
 | Total | 135 | |
