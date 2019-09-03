@@ -36,7 +36,7 @@ Track down some Java code that you wrote from a previous class, or write some Ja
 
 Complete [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial for the code **skipping steps five and six** on *Archetypes* and *Unit Test Reports*. This class is IDE agnostic and does not use the archetype support; the `mvn` tool in the CLI is the only supported interface. Unit testing is covered in the next homework.
 
-Complete this part of the homework by creating a `pom.xml` file to manage the life cycle of this homework. The file must set the Java compiler properties to **Java 1.8**. Edit the code as necessary for it to compile with no errors or warnings. 
+Complete this part of the homework by creating a `pom.xml` file to manage the life cycle of this homework. The file must set the Java compiler properties to **Java 1.8**. Edit the code as necessary for it to compile with no errors or warnings. In general, choose an artifact ID and group ID that is sensible and consistent for the project.
 
 ## Part III: Code Documentation with JavaDoc
 
