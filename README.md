@@ -14,6 +14,8 @@ At the end of this homework, a student should be able to:
 
 This homework requires Git and Maven be available in a command line interface (CLI): `git` and `mvn`. Git is commonly available by default in Linux and Mac OSX. Windows provides several options. Maven is most easily installed via package manager (e.g., [Homebrew Cask](http://caskroom.io/) for Mac OSX). There is no single preferred shell for the CLI as long as `git` and `mvn` are runnable from the prompt.
 
+The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux). OS X and Linux are fairly straightforward with available package managers.
+
 This course is Java based and requires a Java 1.8 JDK. As with the other tools, the JDK is most easily installed via package manager. The `javac` and `java` tools should be available from the CLI for `mvn`. 
 
 The course is IDE agnostic so that students are free to use any preferred IDE or editor. Maven will manage the build lifecycle for the homework and projects in the CLI as mentioned previously. Students are welcome to use the GUI features in a preferred IDE, but all the grading and support is via CLI with `git` and `mvn`. Students are expected to be proficient with these tools from the CLI. General IDE issues are considered outside the scope of TA and instructor support.
@@ -44,9 +46,11 @@ All JavaDocs are generated using the [Apache Maven JavaDoc Plugin](https://maven
 
 ## Part IV: Lint-ing with CheckStyle
 
-Static code analysis is known to reduce code defects. This course uses [CheckStyle](https://checkstyle.sourceforge.io/) with the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) via Maven for a linter. The build phase should fail if any code does not pass CheckStyle.
+Static code analysis is known to reduce code defects. This course uses [CheckStyle](https://checkstyle.sourceforge.io/) with the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) via Maven for a linter. The build phase should warn if any code does not pass CheckStyle.
 
 Complete this part of the homework by configuring the [Maven CheckStyle Plugin](https://maven.apache.org/plugins/maven-checkstyle-plugin/) for the [Google rule set](https://checkstyle.sourceforge.io/google_style.html). Configure the plugin to be a part of the reporting life cycle and to fail the build in the validate phase when CheckStyle does not pass. In this configuration CheckStyle will always run: see [usage](https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html) for Maven configuration examples. Modify your code to pass CheckStyle on the Google rule set.
+
+There are two ways to add in the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) in the `pom.xml` file. Both involve setting the `configlocation` tag in the `configuration` section to specific values. The first, and easiest, way is to simply specify **google_checks.xml** for the value. This file ships with the latest version of CheckStyle and is known. The second way has you download the [google_checks.xml](https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml) file and put it in the root directory with the `pom.xml` file. Both are fine solutions.
 
 ## Part V: Logging with SLF4J
 
@@ -71,11 +75,11 @@ Complete this part of the homework by pushing your local feature branch to the c
 | Descriptive branch name | 5 | |
 | `mvn` configured to compile code | 5 | |
 | Java 1.8 Set in `pom.xml`| 5 | | 
-| Code builds with no `javac` warnings or errors | 10 | |
+| Code builds with no warnings or errors | 10 | |
 | `mvn site` generates JavaDocs with no warnings or errors | 5 | |
 | JavaDocs are given for one class that adheres to the style guide | 25 | |
-| Build fails in validate phase on CheckStyle | 5 | |
-| Code passes CheckStyle on the Google rule set | 20 | |
+| Build runs CheckStyle and reports warnings and errors | 5 | |
+| Code passes CheckStyle on the Google rule set with no warnings or errors | 20 | |
 | Logging support with a binding is in the `pom.xml` file | 5 | |
 | The JavaDoc documented class includes logging at all levels | 10 | |
 | Commits organized in logical units | 10 | |
