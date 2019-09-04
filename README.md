@@ -34,9 +34,11 @@ Be mindful of the commits on the feature branch. Each commit should be self-cont
 
 Track down some Java code that you wrote from a previous class, or write some Java code for this homework. The amount or size of the code should be no more than a few hundred lines of code and not tens or thousands of lines of code (i.e., the code should be small and not tiny or medium). The code should be in at least two or more different classes.
 
-Complete [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial for the code **skipping steps five and six** on *Archetypes* and *Unit Test Reports*. This class is IDE agnostic and does not use the archetype support; the `mvn` tool in the CLI is the only supported interface. Unit testing is covered in the next homework.
+Complete this part of the code by creating a `pom.xml` file to manage the build life-cycle of the code. It only needs compile the code and package it in a jar-file for now. There are many ways to create the `pom.xml` file. For example, follow the [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial for the code or using one of several different [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for Java such as [maven-archetype-simple](https://maven.apache.org/archetypes/maven-archetype-simple/) or [maven-archetype-quickstart](https://maven.apache.org/archetypes/maven-archetype-quickstart/). A little looking through the many choices with `mvn archetype:generate -Dfilter=java` gives many options including a few from BYU and a very nice [java8-minimal-quickstart](https://github.com/spilth/java8-minimal-quickstart).
 
-Complete this part of the homework by creating a `pom.xml` file to manage the life cycle of this homework. The file must set the Java compiler properties to **Java 1.8**. Edit the code as necessary for it to compile with no errors or warnings. In general, choose an artifact ID and group ID that is sensible and consistent for the project.
+If using the any of the Maven archetypes such as simple or quickstart, then be aware that it puts most the plugins in the [Plugin Management](https://maven.apache.org/pom.html#Plugin_Management) section of the `pom.xml` file. Stack Overflow has a nice discussion about [plugin management in Maven](https://stackoverflow.com/questions/10483180/what-is-pluginmanagement-in-mavens-pom-xml) the short of which is that it configures plugins for builds that inherit the `pom.xml`. To work for this build, they need to appear outside the Plugin Management as well.
+
+Maven is an intimidating tool and does take some time to learn (which is some of the goal of this homework). Be patient and use Google. This part of the homework is complete when the `pom.xml` file builds the Java code and packages it in a jar that can be used to run the code. Please use a sensible group and artifact ID for the course such as `edu.byu.cs329` for the group ID and `hw0` for the artifact ID.
 
 ## Part III: Code Documentation with JavaDoc
 
@@ -55,6 +57,8 @@ There are two ways to add in the [Google rule set](https://checkstyle.sourceforg
 ## Part V: Logging with SLF4J
 
 Logging is an important part of debugging and fault isolation for removing code defects. This course is going to use [SLF4J](https://www.slf4j.org/) (Simple Logging Facade for Java) and [Logback](https://logback.qos.ch/) for the binding library SLF4J. 
+
+The way logging is intended to be used in this course is as a mechanism to support debugging. Most often console output is the first line of attack to isolate and fix a program defect (let's be honest). The actual debugger is is the second line of attack. Both are invaluable tools. The logger is intended to help support console output for debugging, but rather than have to remove all that output once the fault is isolated, it can all be left in place and simply turned off by changing the log-level.
 
 To complete this part of the homework, edit the Maven `pom.xml` file to add support for [SLF4J](https://www.slf4j.org/) with the [Logback](https://logback.qos.ch/) binding library. Create an appropriate configuration file that connects the logger to STDOUT. A careful [Google search](http://bfy.tw/LdDI) will find several helpful resources. Add logging to the JavaDoc documented class at the *debug*, *info*, *warn*, *trace*, and *error* levels. Modify the configuration to experiment with the different log-levels available and explore how the console output is changed by the configure log level.
 
@@ -80,7 +84,7 @@ Complete this part of the homework by pushing your local feature branch to the c
 | JavaDocs are given for one class that adheres to the style guide | 25 | |
 | Build runs CheckStyle and reports warnings and errors | 5 | |
 | Code passes CheckStyle on the Google rule set with no warnings or errors | 20 | |
-| Logging support with a binding is in the `pom.xml` file | 5 | |
+| Logging support with a binding is in the `pom.xml`    file | 5 | |
 | The JavaDoc documented class includes logging at all levels | 10 | |
 | Commits organized in logical units | 10 | |
 | Commit messages adhere to standard guidelines | 10 | |
