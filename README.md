@@ -1,6 +1,6 @@
 # Intro
 
-The goal of this homework is to install the core tooling that is used throughout the semester and to learn its basic functionality: build (Maven), revision control (Git Feature Branch Workflow), code documentation (JavaDoc), lint-ing (CheckStyle), and logging (SLF4J). Many of the steps require research to complete. This lack of specificity is intentional, and students are encouraged to use the Internet to fill in the missing gaps.
+The goal of this homework is to install the core tooling that is used throughout the semester and to learn its basic functionality: build (Maven), revision control (Git Feature Branch Workflow), code documentation (JavaDoc), lint-ing (CheckStyle), and logging (SLF4J). Many of the steps require research to complete and lack specificity. Use the TAs, Slack, and peers early rather than spend hours trying to figure something out. Tooling is a pain, but once it works, it is amazing.
 
 At the end of this homework, a student should be able to:
 
