@@ -12,11 +12,11 @@ At the end of this homework, a student should be able to:
 
 # Pre-requisites
 
-This homework requires Git and Maven be available in a command line interface (CLI): `git` and `mvn`. Git is commonly available by default in Linux and Mac OSX. Windows provides several options. Maven is most easily installed via package manager (e.g., [Homebrew Cask](https://brew.sh/) for Mac OSX). There is no single preferred shell for the CLI as long as `git` and `mvn` are runnable from the prompt.
+This homework requires Git and Maven be available in a command line interface (CLI): `git` and `mvn`. Git is commonly available by default in Linux and Mac OSX. Windows provides several options. Maven is most easily installed with a package manager (e.g., [Homebrew Cask](https://brew.sh/) for Mac OSX). There is no single preferred shell for the CLI as long as `git` and `mvn` are runnable from the prompt.
 
 The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux). OS X and Linux are fairly straightforward with available package managers.
 
-This course is Java based and requires a Java 1.8 JDK. As with the other tools, the JDK is most easily installed via package manager. The `javac` and `java` tools should be available from the CLI for `mvn`. 
+This course is Java based and requires a Java 1.8 JDK. As with the other tools, the JDK is most easily installed with a package manager. The `javac` and `java` tools should be available from the CLI for `mvn`. 
 
 The course is IDE agnostic so that students are free to use any preferred IDE or editor. Maven will manage the build lifecycle for the homework and projects in the CLI as mentioned previously. Students are welcome to use the GUI features in a preferred IDE, but all the grading and support is via CLI with `git` and `mvn`. Students are expected to be proficient with these tools from the CLI. General IDE issues are considered outside the scope of TA and instructor support.
 
@@ -24,55 +24,78 @@ The course is IDE agnostic so that students are free to use any preferred IDE or
 
 ## Part I: Feature Branch Workflow in Git
 
-Study the [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow). The repository created by the invitation request from GitHub Classroom is the central repository. The master branch on the central repository is the latest state of the project.
+**Requirement:** create a feature branch for your homework submission in your local copy of the 'hw0-tooling' repository to later use in a pull request as your homework submission.
 
-Complete this part of the homework by creating a feature branch for the homework in your local repository. At the end of this homework, the local feature branch will be pushed to the central repository and then used to create a pull request. Give the branch a descriptive name.
+Study the [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow). The repository created by the invitation request from GitHub Classroom is the central repository. The master branch on the central repository is the latest state of the homework.
 
-Be mindful of the commits on the feature branch. Each commit should be self-contained and reflect a set of changes that logically belong together. Students are expected to adhere to [commit message guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53).
+Complete this part of the homework by creating a feature branch for the homework in your local repository. At the end of this homework, the local feature branch will be pushed to the central repository and then used to create a pull request. Be sure the branch names reflects its intended purpose.
+
+Along tho way, please be mindful of the commit contents and comments. Commits should be self-contained and reflect a set of changes that logically belong together. Commit messages are expected to adhere to [commit message guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53).
 
 ## Part II: Build Lifecycle Management with Maven
 
-Track down some Java code that you wrote from a previous class, or write some Java code for this homework. The amount or size of the code should be no more than a few hundred lines of code and not tens or thousands of lines of code (i.e., the code should be small and not tiny or medium). The code should be in at least two or more different classes.
+**Requirement:** grab some Java code and then create a `pom.xml` file for Maven such that `mvn compile` followed by [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) with the appropriate main method class specified runs the Java code as expected using Java 8.
 
-Complete this part of the code by creating a `pom.xml` file to manage the build life-cycle of the code and run the code. The `pom.xml` file only needs to be able to compile the code and package it in a jar-file for now. There are many ways to create the `pom.xml` file. For example, follow the [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial for the code or using one of several different [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for Java such as [maven-archetype-simple](https://maven.apache.org/archetypes/maven-archetype-simple/) or [maven-archetype-quickstart](https://maven.apache.org/archetypes/maven-archetype-quickstart/). A little looking through the many choices with `mvn archetype:generate -Dfilter=java` gives many options including a few from BYU and a very nice [java8-minimal-quickstart](https://github.com/spilth/java8-minimal-quickstart).
+Track down some Java code that you wrote from a previous class, or write some Java code for this homework. The amount or size of the code should be no more than a few hundred lines of code and not tens or thousands of lines of code (i.e., the code should be small, but not ridiculously small as in *Hello World*). There should be at least two classes as part of the code.
 
-If using the any of the Maven archetypes such as simple or quickstart, then be aware that it puts most the plugins in the [Plugin Management](https://maven.apache.org/pom.html#Plugin_Management) section of the `pom.xml` file. Stack Overflow has a nice discussion about [plugin management in Maven](https://stackoverflow.com/questions/10483180/what-is-pluginmanagement-in-mavens-pom-xml) the short of which is that it configures plugins for builds that inherit the `pom.xml`. To work for this build, they need to appear outside the Plugin Management as well.
+There are many ways to create the `pom.xml` file. [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial is a good starting point. [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for Java make it even easier. Any of the following archetypes work for the homework: [java8-minimal-quickstart](https://github.com/spilth/java8-minimal-quickstart), [maven-archetype-simple](https://maven.apache.org/archetypes/maven-archetype-simple/), or [maven-archetype-quickstart](https://maven.apache.org/archetypes/maven-archetype-quickstart/). Even more archetypes can by explored with `mvn archetype:generate -Dfilter=java`. Try out a few to see what different options are given and how those affect the final `pom.xml` file.
 
-Maven is an intimidating tool and does take some time to learn (which is some of the goal of this homework). Be patient and use Google. This part of the homework is complete when the `pom.xml` file builds the Java code and packages it in a jar that can be used to run the code. Please use a sensible group and artifact ID for the course such as `edu.byu.cs329` for the group ID and `hw0` for the artifact ID.
+This part of the homework is complete when there exists a `pom.xml` in the same directory as this `README.md` file that is able to build, package, and run the code. Building the code is accomplished with `mvn compile` or `mvn package`. The [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) command expects the main class methode to be specified as an argument (e.g., `-Dexec.mainClass="edu.byu.cs329.hw0.Main`). The `pom.xml` file is not required to do anything else. More actions in the build process will be added later. Be sure to use sensible group (e.g., `edu.byu.cs329`) and artifact IDs.
 
-Running the code with Maven is fairly straightforward. Define a class with a `main` method and then use [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/). 
+As a note, some Maven archetypes configure plugins in the [Plugin Management](https://maven.apache.org/pom.html#Plugin_Management) section of the `pom.xml` file. Stack Overflow has a nice discussion about [plugin management in Maven](https://stackoverflow.com/questions/10483180/what-is-pluginmanagement-in-mavens-pom-xml) that is worth reading before leaving this section of the homework. In short, the `Plugin Management` section configures plugins for builds that inherit the current `pom.xml` file (e.g., projects in sub-directories). These plugins must be referenced in some element of the current `pom.xml` to be active in the current build.
+
+Maven is an intimidating tool and does take some time to learn (which is some of the goal of this homework), so try some experiments and play around with it. As always, be patient and do not be afraid to ask for help!
 
 ## Part III: Code Documentation with JavaDoc
 
-It is expected that all code is documented via [JavaDoc](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) following the Java Software Oracle [style guide](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html). There is a good example at the end of the [style guide](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) that represents what is expected for the course.
+**Requirement:** [JavaDoc](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) a class in the source code, add the [Apache Maven JavaDoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html) to the `pom.xml` file, and use Maven to generate the actual docs.
 
-All JavaDocs are generated using the [Apache Maven JavaDoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html). Complete this part of the homework by configuring Maven to generate JavaDocs in reporting as a part of the `mvn site` build life cycle, write JavaDocs for one of the classes in your code, and be sure those docs are correctly generated with no warnings or errors.
+It is expected that all code is documented via [JavaDoc](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) following the Java Software Oracle [style guide](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html). There is a good example at the end of the [style guide](https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) that represents what is expected for the course: 
+
+  * All public classes, methods, and fields should have JavaDocs
+  * Methods should minimally use the `@param` and `@return` in addition to the overview
+  * Classes should minimally indicate `@author` in addition to the overview
+  * The first line for any method should be a summary statement similar to a commit message
+
+JavaDoc one of the class files in the project.
+
+The actual docs are generated using the [Apache Maven JavaDoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html). Configure the `pom.xml` file to generate the docs in reporting as a part of the `mvn site` build life cycle. Be sure the docs are correctly generated with no warnings or errors except for the `[WARNING] No project URL defined - decoration links will not be relativized!` which is acceptable.
+
+As a note, the JavaDoc plugin will need to be configured for Java 8, and the [Maven Site Plugin](https://maven.apache.org/plugins/maven-site-plugin/) may be required in the `build` section of the `pom.xml` file for the `mvn site` target to complete.
 
 ## Part IV: Lint-ing with CheckStyle
 
-Static code analysis is known to reduce code defects. This course uses [CheckStyle](https://checkstyle.sourceforge.io/) with the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) via Maven for a linter. The build phase should warn if any code does not pass CheckStyle.
+**Requirement:** integrate [CheckStyle](https://checkstyle.sourceforge.io/) with the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) into the Mavin build life cycle using the [Maven CheckStyle Plugin](https://maven.apache.org/plugins/maven-checkstyle-plugin/) so that the build fails in the validate phase if [CheckStyle](https://checkstyle.sourceforge.io/) does not pass.
 
-Complete this part of the homework by configuring the [Maven CheckStyle Plugin](https://maven.apache.org/plugins/maven-checkstyle-plugin/) for the [Google rule set](https://checkstyle.sourceforge.io/google_style.html). Configure the plugin to be a part of the reporting life cycle and to fail the build in the validate phase when CheckStyle does not pass. In this configuration CheckStyle will always run: see [usage](https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html) for Maven configuration examples. Modify your code to pass CheckStyle on the Google rule set.
+Static code analysis is known to reduce code defects. This course uses [CheckStyle](https://checkstyle.sourceforge.io/) with the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) via the [Maven CheckStyle Plugin](https://maven.apache.org/plugins/maven-checkstyle-plugin/). [Configure](https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html) the plugin to fail the build in the validate phase when CheckStyle does not pass. Select the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) by setting the `configlocation` tag in the `configuration` section to **google_checks.xml**.
 
-There are two ways to add in the [Google rule set](https://checkstyle.sourceforge.io/google_style.html) in the `pom.xml` file. Both involve setting the `configlocation` tag in the `configuration` section to specific values. The first, and easiest, way is to simply specify **google_checks.xml** for the value. This file ships with the latest version of CheckStyle and is known. The second way has you download the [google_checks.xml](https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml) file and put it in the root directory with the `pom.xml` file. Both are fine solutions.
+## Part V: Logging with SLF4J and log
 
-## Part V: Logging with SLF4J
+**Requirement:** add logging to the Java code using the [SLF4J](https://www.slf4j.org/) API via the [Log4j2](https://logging.apache.org/log4j/2.x/) binding with a configuration file for [Log4j2](https://logging.apache.org/log4j/2.x/) that outputs to console all logging on *ERROR*, *WARN*, *INFO*, *DEBUG*, and *TRACE*.
 
-Logging is an important part of debugging and fault isolation for removing code defects. This course is going to use [SLF4J](https://www.slf4j.org/) (Simple Logging Facade for Java) and [Logback](https://logback.qos.ch/) for the binding library SLF4J. 
+Logging is an important part of debugging and fault isolation for removing code defects. All console output related to program state should go through the logger in this course at an appropriate log level:
 
-The way logging is intended to be used in this course is as a mechanism to support debugging. Most often console output is the first line of attack to isolate and fix a program defect (let's be honest). The actual debugger is is the second line of attack. Both are invaluable tools. The logger is intended to help support console output for debugging, but rather than have to remove all that output once the fault is isolated, it can all be left in place and simply turned off by changing the log-level.
+   * *ERROR*: designates error events that might still allow the application to continue
+   * *WARN*: designates potentially harmful situations
+   * *INFO*: designates high-level course grained informational messages that highlight progress
+   * *DEBUG*: designates fine-grained informational events that are most useful to debugging
+   * *TRACE*: designates even finer-grained informational events that the *DEBUG* level
 
-To complete this part of the homework, edit the Maven `pom.xml` file to add support for [SLF4J](https://www.slf4j.org/) with the [Logback](https://logback.qos.ch/) or [Log4j 2](https://logging.apache.org/log4j/2.x/) binding library. Create an appropriate configuration file that connects the logger to STDOUT. A careful [Google search](http://bfy.tw/LdDI) will find several helpful resources. Add logging to the JavaDoc documented class at the *debug*, *info*, *warn*, *trace*, and *error* levels. Modify the configuration to experiment with the different log-levels available and explore how the console output is changed by the configure log level.
+The logger enables the programmer to output fine-grained to coarse-grained program events at appropriate log levels. A simple configuration file turns on/off log levels depending on the intended task or use of the logging.  As such, it is no longer necessary to track down and remove errant console output relating to debugging efforts---just turn off the logger.
+
+Complete this part of the homework by adding the needed dependencies to the `pom.xml` file to use the [Log4j2](https://logging.apache.org/log4j/2.x/) implementation of [SLF4J](https://www.slf4j.org/). Configure [Log4j2](https://logging.apache.org/log4j/2.x/) to output to console from log-level *TRACE* up to log-level *ERROR* (that should cover all level defined above). Add logging to the Java code to output at all the levels.
 
 ## Part VI: .gitignore
 
+**Requirement:** add a `.gitignore` file to excludes any build artifacts and IDE project artifacts from revision control.
+
 Version control is most effective when it only tracks and reports files that are pertinent to the build and deployment of the project. It can be confusing when version control constantly reports information on non-essential files. It is expected that students include an appropriate `.gitignore` file in all project repositories to only track important files and artifacts.
 
-Complete this part of the homework by creating and adding a `.gitignore` file to the project (if it has yet to be added) that ignores build artifacts, IDE project files, and any other files not essential to the Maven life-cycle management.
+Complete this part of the homework by creating and adding a `.gitignore` file to the project (if it has yet to be added) that ignores build artifacts, IDE project files, and any other files not essential to building the project.
 
 ## Part VII: Create a Pull Request
 
-Complete this part of the homework by pushing your local feature branch to the central repository and then creating a [pull request](https://help.github.com/en/articles/creating-a-pull-request) for the feature. Pull requests are expected to roughly follow this [style guide](https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/). Be sure to directly reference the @-reference the instructor for notification. 
+**Requirement:** pushing your local feature branch to the central repository and then create a [pull request](https://help.github.com/en/articles/creating-a-pull-request). Pull requests are expected to roughly follow this [style guide](https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/). Be sure to directly @-reference the instructor for notification. 
 
 # Grading Rubric
 
