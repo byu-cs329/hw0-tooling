@@ -14,7 +14,7 @@ At the end of this homework, a student should be able to:
 
 This homework requires Git and Maven be available in a command line interface (CLI): `git` and `mvn`. Git is commonly available by default in Linux and Mac OSX. Windows provides several options. Maven is most easily installed with a package manager (e.g., [Homebrew Cask](https://brew.sh/) for Mac OSX). There is no single preferred shell for the CLI as long as `git` and `mvn` are runnable from the prompt.
 
-The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux). OS X and Linux are fairly straightforward with available package managers.
+The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) ([Installation guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10), [Using VS Code with WSL](https://code.visualstudio.com/docs/remote/wsl)). OS X and Linux are fairly straightforward with available package managers.
 
 This course is Java based and requires a Java 1.8 JDK. As with the other tools, the JDK is most easily installed with a package manager. The `javac` and `java` tools should be available from the CLI for `mvn`. 
 
