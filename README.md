@@ -16,7 +16,7 @@ This homework requires Git and Maven be available in a command line interface (C
 
 The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) ([Installation guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10), [Using VS Code with WSL](https://code.visualstudio.com/docs/remote/wsl)). OS X and Linux are fairly straightforward with available package managers.
 
-This course is Java based and requires a Java 1.8 JDK. As with the other tools, the JDK is most easily installed with a package manager. The `javac` and `java` tools should be available from the CLI for `mvn`. 
+This course is Java based and requires a Java 11 JDK. As with the other tools, the JDK is most easily installed with a package manager. The `javac` and `java` tools should be available from the CLI for `mvn`. 
 
 The course is IDE agnostic so that students are free to use any preferred IDE or editor. Maven will manage the build lifecycle for the homework and projects in the CLI as mentioned previously. Students are welcome to use the GUI features in a preferred IDE, but all the grading and support is via CLI with `git` and `mvn`. Students are expected to be proficient with these tools from the CLI. General IDE issues are considered outside the scope of TA and instructor support. Students have been successful using [VS Code](https://code.visualstudio.com/), [IntelliJ](https://www.jetbrains.com/idea/), and [Eclipse](https://www.eclipse.org/downloads/packages/).
 
@@ -34,11 +34,11 @@ Along the way, please be mindful of the commit contents and comments. Commits sh
 
 ## Part II: Build Lifecycle Management with Maven
 
-**Requirement:** 1) grab some Java code (or use the Dijkstra code [here](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/maven-lint-javadoc-git/)) and then 2) create a `pom.xml` file for Maven (details below) such that `mvn compile` followed by [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) with the appropriate main method class specified runs the Java code as expected using Java 8.
+**Requirement:** 1) grab some Java code (or use the Dijkstra code [here](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/maven-lint-javadoc-git/)) and then 2) create a `pom.xml` file for Maven (details below) such that `mvn compile` followed by [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) with the appropriate main method class specified runs the Java code as expected using Java 11.
 
 1) Track down some Java code that you wrote from a previous class, or write some Java code for this homework. The amount or size of the code should be no more than a few hundred lines of code and not tens or thousands of lines of code (i.e., the code should be small, but not ridiculously small as in *Hello World*). There should be at least two classes as part of the code. Also consider using the Dijkstra code found in the [BitBucket lecture notes repository](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/maven-lint-javadoc-git/).
 
-2) There are many ways to create the `pom.xml` file. [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial is a good starting point. [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for Java make it even easier. Any of the following archetypes work for the homework: [java8-minimal-quickstart](https://github.com/spilth/java8-minimal-quickstart), [maven-archetype-simple](https://maven.apache.org/archetypes/maven-archetype-simple/), or [maven-archetype-quickstart](https://maven.apache.org/archetypes/maven-archetype-quickstart/) -- just make sure you replace the code file names with *your* code names. Even more archetypes can by explored with `mvn archetype:generate -Dfilter=java`. Try out a few to see what different options are given and how those affect the final `pom.xml` file.
+2) There are many ways to create the `pom.xml` file. [Your First Maven Project](http://tutorials.jenkov.com/maven/your-first-maven-project.html) tutorial is a good starting point. [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for Java make it even easier. Any of the following archetypes work for the homework: [maven-archetype-quickstart-java11](https://github.com/EmilianoFraga/maven-archetype-quickstart-java11), [maven-archetype-simple](https://maven.apache.org/archetypes/maven-archetype-simple/), or [maven-archetype-quickstart](https://maven.apache.org/archetypes/maven-archetype-quickstart/) -- just make sure you replace the code file names with *your* code names. Even more archetypes can by explored with `mvn archetype:generate -Dfilter=java`. Try out a few to see what different options are given and how those affect the final `pom.xml` file.
 
 This part of the homework is complete when there exists a `pom.xml` in the same directory as this `README.md` file that is able to build, package, and run the code. Building the code is accomplished with `mvn compile` or `mvn package`. The [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) command expects the main class methode to be specified as an argument (e.g., `-Dexec.mainClass="edu.byu.cs329.hw0.Main"`). The `pom.xml` file is not required to do anything else. More actions in the build process will be added later. Be sure to use sensible group (e.g., `edu.byu.cs329`) and artifact IDs.
 
@@ -63,7 +63,7 @@ JavaDoc one of the class files in the project.
 
 The actual docs are generated using the [Apache Maven JavaDoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html). Configure the `pom.xml` file to generate the docs in reporting as a part of the `mvn site` build life cycle. Be sure the docs are correctly generated with no warnings or errors except for the `[WARNING] No project URL defined - decoration links will not be relativized!` which is acceptable.
 
-As a note, the JavaDoc plugin will need to be configured for Java 8, and the [Maven Site Plugin](https://maven.apache.org/plugins/maven-site-plugin/) may be required in the `build` section of the `pom.xml` file for the `mvn site` target to complete.
+As a note, the JavaDoc plugin will need to be configured for Java 11, and the [Maven Site Plugin](https://maven.apache.org/plugins/maven-site-plugin/) may be required in the `build` section of the `pom.xml` file for the `mvn site` target to complete.
 
 ## Part IV: Lint-ing with CheckStyle
 
@@ -91,7 +91,7 @@ Complete this part of the homework by adding the needed dependencies to the `pom
 
 **Requirement:** add a `.gitignore` file to excludes any build artifacts and IDE project artifacts from revision control.
 
-Version control is most effective when it only tracks and reports files that are pertinent to the build and deployment of the project. It can be confusing when version control constantly reports information on non-essential files. It is expected that students include an appropriate `.gitignore` file in all project repositories to only track important files and artifacts.
+Version control is most effective when it only tracks and reports files that are pertinent to the build and deployment of the project. It can be confusing when version control constantly reports information on non-essential files. It is expected that students include an appropriate `.gitignore` file in all project repositories to only track important files and artifacts. 
 
 Complete this part of the homework by creating and adding a `.gitignore` file to the project (if it has yet to be added) that ignores build artifacts, IDE project files, and any other files not essential to building the project.
 
@@ -99,23 +99,6 @@ Complete this part of the homework by creating and adding a `.gitignore` file to
 
 **Requirement:** pushing your local feature branch to the central repository and then create a [pull request](https://help.github.com/en/articles/creating-a-pull-request). Pull requests are expected to roughly follow this [style guide](https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/). Be sure to directly @-reference the instructor for notification. 
 
-# Grading Rubric
-
-| Problem | Point Value | Your Score |
-| ------- | ----------- | ---------- |
-| Descriptive branch name | 5 | |
-| Pull request adheres to style guide | 10 | |
-| Pull request @references the instructor for notification | 5 | |
-| Commits organized in logical units | 10 | |
-| Commit messages adhere to standard guidelines | 10 | |
-| `.gitignore` file to ignore non-essential files | 5 | |
-| Java 1.8 Set in `pom.xml`| 5 | |
-| Logging support with a binding is in the `pom.xml`    file | 5 | |
-| `mvn` configured to compile code | 5 | |
-| Code builds with no warnings or errors | 10 | |
-| Build runs CheckStyle and reports warnings and errors | 5 | |
-| Code passes CheckStyle on the Google rule set with no warnings or errors | 20 | |
-| `mvn site` generates JavaDocs with no warnings or errors | 5 | |
-| JavaDocs are given for one class that adheres to the style guide | 25 | |
-| The JavaDoc documented class includes logging at all levels | 10 | |
-| Total | 135 | |
+Upon uploading of your pull request, GitHub will give you a sanity check by running `mvn verify site` on your code. 
+Note that passing the build *does not* mean that you will get full credit for the assignment. 
+Please reread this writeup to make sure you have completed all the requirements, and refer to the grading rubric on Canvas for details on grading.
