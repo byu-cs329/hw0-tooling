@@ -30,17 +30,17 @@ Containerization is critical for testing as it bridges the gab between deploymen
 
 Docker is fast becoming the de-factor way to specify *images* and build *containers* from images. An image is a specification for a container. A container is an instance of an image. A container ends up being a process, but that process effectively is some form of Linux distribution, depending on the image, for Docker. Good practice includes with the code the image specifications for development, test, and deploy. The image specifications are stored in the code repository and as important as the code itself.
 
-# Docker Desktop
+### Docker Desktop
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) is all that is needed to get started with Docker. There is a cask in brew for it: `$ brew cask install docker`. A few useful commands: `docker run` and `docker container ls`. 
 
 The windows desktop version will show the containers and give some basic ability to understand the state of the container. OSX only provides the `docker` command after the app is launched.
 
-# Java Development
+### Java Development
 
 There are two readily available (and easy to use) paths in Docker for Java development and test. Each is details below.
 
-## Maven Images for Test
+#### Maven Images for Test
 
 It is easiest to use maven images that are publicly available. A good overview is in [Crafting the Perfect Java Docker Build Flow](https://codefresh.io/docker-tutorial/java_docker_pipeline/).
 
@@ -68,7 +68,7 @@ $ docker run --interactive --tty --rm --name hw2 --volume "${pwd}:/usr/src/app" 
 
 The paths have to be quoted as do the lists (e.g., the : joined things).
 
-# Visual Studio Code Connected to Docker Container
+#### Visual Studio Code Connected to Docker Container
 
 Super cool is the ability to have Visual Studio Code open a directory on the host machine in a running docker container. [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers) is a good starting point. For this class, the Java container is a fine starting point. The specification for that container is added to the local directory, so the image can be changed and rebuilt. Code automatically detects changes and prompts to rebuild.
 
@@ -76,7 +76,7 @@ Visual Studio Code for Java development is easy to get up and going. The *Java E
 
 Install the *Remote Development* extension. In the command prompt look for *Remote-Containers*. Choose *Java* for the container. It takes some time to build the image so be patient. After that, use the terminal in VS Code to run commands or use the `mvn` targets. VS Code prompts to re-open the directory in the container whenever the directory is opened. The container preserves the `mvn` cache.
 
-# Conclusion
+### Conclusion
 Make sure to have a Docker container installed and available to use for the rest of this assignment.
 
 ## Part II: Feature Branch Workflow in Git
