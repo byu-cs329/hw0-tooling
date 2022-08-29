@@ -8,11 +8,13 @@ At the end of this homework, a student should be able to:
    * Configure and use Maven to manage the build lifecycle of a project
    * Write JavaDocs and run JavaDoc via Maven to generate documentation
    * Run CheckStyle via Maven to lint source code 
-   * Add via Maven and then use SLF4J logging with the logback binding to the console
+   * Add, via Maven, and use SLF4J logging with the logback binding to the console
 
 # Pre-requisites
 
-This homework requires Git and Maven be available in a command line interface (CLI): `git` and `mvn`. Git is commonly available by default in Linux and Mac OSX. Windows provides several options. Maven is most easily installed with a package manager (e.g., [Homebrew Cask](https://brew.sh/) for Mac OSX). There is no single preferred shell for the CLI as long as `git` and `mvn` are runnable from the prompt.
+This homework requires Git and Maven be available in a command line interface (CLI): `git` and `mvn`. The easiest solution is to use [Docker](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/docker.md). Docker is the preferred solution for the course, and it is what is used in class for lectures and for grading. 
+
+That said, it is still mightily convenient to have both `git` and `mvn` installed locally. Git is commonly available by default in Linux and Mac OSX. Windows provides several options. Maven is most easily installed with a package manager (e.g., [Homebrew Cask](https://brew.sh/) for Mac OSX). There is no single preferred shell for the CLI as long as `git` and `mvn` are runnable from the prompt.
 
 The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) ([Installation guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10), [Using VS Code with WSL](https://code.visualstudio.com/docs/remote/wsl)). OS X and Linux are fairly straightforward with available package managers.
 
@@ -28,7 +30,7 @@ The course is IDE agnostic so that students are free to use any preferred IDE or
 
 Study the [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow). The repository created by the invitation request from GitHub Classroom is the central repository. The master branch on the central repository is the latest state of the homework (note: the repo only contains this readme file).
 
-Complete this part of the homework by creating a feature branch for the homework in your local repository. At the end of this homework, the local feature branch will be pushed to the central repository and then used to create a pull request. Be sure the branch names reflects its intended purpose.
+Complete this part of the homework by creating a feature branch for the homework in your local repository. At the end of this homework, the local feature branch will be pushed to the central repository and then used to create a pull request. Be sure branch names reflect their intended purpose.
 
 Along the way, please be mindful of the commit contents and comments. Commits should be self-contained and reflect a set of changes that logically belong together. Commit messages are expected to adhere to these [commit message guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53).
 
