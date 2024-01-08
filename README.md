@@ -18,7 +18,7 @@ That said, it is still mightily convenient to have both `git` and `mvn` installe
 
 The course does not rely on any single platform; the tools are available to Windows, OS X, and Linux. Windows users might consider using [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) ([Installation guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10), [Using VS Code with WSL](https://code.visualstudio.com/docs/remote/wsl)). OS X and Linux are fairly straightforward with available package managers.
 
-This course is Java based and requires a Java 11 JDK. As with the other tools, the JDK is most easily installed with a package manager. The `javac` and `java` tools should be available from the CLI for `mvn`.
+This course is Java based and requires a Java 17 JDK. As with the other tools, the JDK is most easily installed with a package manager. The `javac` and `java` tools should be available from the CLI for `mvn`.
 
 The course is IDE agnostic so that students are free to use any preferred IDE or editor. Maven will manage the build lifecycle for the homework and projects in the CLI as mentioned previously. Students are welcome to use the GUI features in a preferred IDE, but all the grading and support is via CLI with `git` and `mvn`. Students are expected to be proficient with these tools from the CLI. General IDE issues are considered outside the scope of TA and instructor support. Students have been successful using [VS Code](https://code.visualstudio.com/), [IntelliJ](https://www.jetbrains.com/idea/), and [Eclipse](https://www.eclipse.org/downloads/packages/).
 
@@ -36,7 +36,7 @@ Along the way, please be mindful of the commit contents and comments. Commits sh
 
 ## Part II: Build Lifecycle Management with Maven
 
-**Requirement:** 1) grab some Java code (or use the Dijkstra code [here](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/maven-lint-javadoc-git/)) and then 2) create a `pom.xml` file for Maven (details below) such that `mvn compile` followed by [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) with the appropriate main method class specified runs the Java code as expected using Java 11.
+**Requirement:** 1) grab some Java code (or use the Dijkstra code [here](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/maven-lint-javadoc-git/)) and then 2) create a `pom.xml` file for Maven (details below) such that `mvn compile` followed by [mvn exec:java](http://www.vineetmanohar.com/2009/11/3-ways-to-run-java-main-from-maven/) with the appropriate main method class specified runs the Java code as expected using Java 17.
 
 1) Track down some Java code that you wrote from a previous class, or write some Java code for this homework. The amount or size of the code should be no more than a few hundred lines of code and not tens or thousands of lines of code (i.e., the code should be small, but not ridiculously small as in *Hello World*). There should be at least two classes as part of the code. Also consider using the Dijkstra code found in the [BitBucket lecture notes repository](https://bitbucket.org/byucs329/byu-cs-329-lecture-notes/src/master/maven-lint-javadoc-git/).
 
@@ -65,7 +65,7 @@ JavaDoc one of the class files in the project.
 
 The actual docs are generated using the [Apache Maven JavaDoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html). Configure the `pom.xml` file to generate the docs in reporting as a part of the `mvn site` build life cycle. Be sure the docs are correctly generated with no warnings.
 
-As a note, the JavaDoc plugin will need to be configured for Java 11, and the [Maven Site Plugin](https://maven.apache.org/plugins/maven-site-plugin/) may be required in the `build` section of the `pom.xml` file for the `mvn site` target to complete.
+As a note, the JavaDoc plugin will need to be configured for Java 17, and the [Maven Site Plugin](https://maven.apache.org/plugins/maven-site-plugin/) may be required in the `build` section of the `pom.xml` file for the `mvn site` target to complete.
 
 ## Part IV: Lint-ing with CheckStyle
 
